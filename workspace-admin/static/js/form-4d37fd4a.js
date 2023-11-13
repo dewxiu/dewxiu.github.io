@@ -1,1 +1,0 @@
-import{_ as o}from"./form.vue_vue_type_script_setup_true_lang-c7b4dd98.js";import"./config-271bc613.js";import"./common-ed067d83.js";import"./sortable.esm-9c3c89c5.js";import"./index-e18d8825.js";export{o as default};
