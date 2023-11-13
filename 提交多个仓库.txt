@@ -1,0 +1,2 @@
+cd webxiu.github.io && git add . && git commit -m '修改提交' --no-verify && git pull && git push 
+cd ../dewxiu.github.io && git add . && git commit -m '更新提交' --no-verify && git pull && git push
