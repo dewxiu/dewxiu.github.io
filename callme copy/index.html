@@ -9,11 +9,7 @@
     />
     <title>Call Me</title>
     <link href="./css/wangeditor.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/mixin.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/transition.css" />
-    <link rel="stylesheet" href="../assets/vue/element-plus@2.9.7.css" />
-    <link rel="stylesheet" href="../assets/vue/vant@4.index.css" />
+    <link rel="stylesheet" href="./css/index.css" />
 
     <script src="../assets/vue/vue@3.5.13.global.js"></script>
     <script src="../assets/vue/vue-router@4.5.0.global.js"></script>
@@ -38,7 +34,7 @@
     <div id="app"></div>
     <!-- Home 组件 -->
     <script type="text/html" id="homeTemplate">
-      <div class="main">
+      <div class="app-main">
         <div class="header">
           <p>Header</p>
         </div>
@@ -75,7 +71,20 @@
       </div>
     </script>
     <script type="text/html" id="contactTemplate">
-      <div class="container">
+      <p>联系组件</p>
+    </script>
+    <script type="text/html" id="detailTemplate">
+      <div>详情</div>
+    </script>
+    <script type="text/html" id="testTemplate">
+      <p>22测试组件</p>
+    </script>
+    <script type="text/html" id="demoTemplate">
+      <p>Demo组件</p>
+    </script>
+    <!-- 全屏组件 -->
+    <script type="text/html" id="qrcodeTemplate">
+      <div class="qrcode">
         <div class="make-qrcode">
           <el-button type="primary" link @click="onGenerate">
             生成我的二维码
@@ -98,62 +107,70 @@
             </div>
           </div>
           <div class="content">
-            <div class="center mt20">
-              <img
-                style="width:75%"
-                :src="wechat"
-                alt="添加二维码"
-                title="添加二维码"
-              />
+            <div class="ui-ta-c mt20">
+              <img style="width:75%" :src="wechat" alt="添加二维码" />
             </div>
-            <div class="center">(添加微信 获取邀请码)</div>
-            <div class="center mt20">
-              <img
-                style="width:75%"
-                :src="callme"
-                alt="邀请二维码"
-                title="邀请二维码"
-              />
+            <div class="ui-ta-c">(添加微信 获取邀请码)</div>
+            <div class="ui-ta-c mt20">
+              <img style="width:75%" :src="callme" alt="邀请二维码" />
             </div>
-            <div class="center">(长按保存·分享)</div>
+            <div class="ui-ta-c">(长按保存·分享)</div>
           </div>
           <p class="author">By @Hailen</p>
         </div>
 
         <div class="footer">
           <span>If you want to use it,</span>
-          <span style="white-space: nowrap"
-            >please contact <b>@Hailen</b> to get.</span
-          >
+          <span style="white-space: nowrap">
+            please contact <b>@Hailen</b> to get.
+          </span>
         </div>
+        <!-- 弹窗 -->
+        <van-overlay :show="show" @click="show = false">
+          <div class="wrapper">
+            <div class="block" @click.stop>
+              <van-form
+                @submit="onSubmit"
+                label-width="55"
+                label-align="right"
+                :colon="true"
+                :required="false"
+                :show-error="true"
+                :scroll-to-error="true"
+                :show-error-message="false"
+              >
+                <van-cell-group inset>
+                  <van-field
+                    v-for="(item, index) in formItems"
+                    v-model="formData[item.prop]"
+                    :key="index"
+                    :name="item.prop"
+                    :label="item.label"
+                    :rules="item.rules"
+                    :placeholder="item.placeholder"
+                  />
+                </van-cell-group>
+                <div style="margin: 16px;" class="flex-center">
+                  <van-button type="primary" native-type="submit">
+                    提交生成
+                  </van-button>
+                  <van-button native-type="reset" style="margin-left: 15px;">
+                    清空
+                  </van-button>
+                </div>
+              </van-form>
+              <div class="qrcode-box">
+                <img id="code-img" alt="二维码" />
+                <div class="gen-code"></div>
+                <div v-if="isWechat" class="code-tip">(长按二维码保存)</div>
+                <div v-else id="download" class="form-button default">
+                  下载二维码
+                </div>
+              </div>
+            </div>
+          </div>
+        </van-overlay>
       </div>
-    </script>
-    <script type="text/html" id="detailTemplate">
-      <van-form @submit="onSubmit">
-        <van-cell-group inset>
-          <van-field
-            v-for="(item, index) in formItems"
-            v-model="formData[item.prop]"
-            :name="item.prop"
-            :label="item.label"
-            :placeholder="item.placeholder"
-            :rules="item.rules"
-            :key="index"
-          />
-        </van-cell-group>
-        <div style="margin: 16px;">
-          <van-button round block type="primary" native-type="submit">
-            提交生成
-          </van-button>
-          <van-button round block native-type="reset"> 清空 </van-button>
-        </div>
-      </van-form>
-    </script>
-    <script type="text/html" id="testTemplate">
-      <p>22测试组件</p>
-    </script>
-    <script type="text/html" id="demoTemplate">
-      <p>Demo组件</p>
     </script>
     <script type="module" src="./src/main.js"></script>
   </body>

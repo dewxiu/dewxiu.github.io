@@ -39,6 +39,17 @@ a:hover {
   cursor: pointer;
 }
 
+.ml10 {
+  margin-left: 10px;
+}
+.mb15 {
+  margin-bottom: 15px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
 .flex {
   display: flex;
 }
@@ -91,18 +102,6 @@ a:hover {
 
 .ta-c {
   text-align: center;
-}
-
-.mb15 {
-  margin-bottom: 15px;
-}
-
-.mt20 {
-  margin-top: 20px;
-}
-
-.ml10 {
-  margin-left: 10px;
 }
 
 label {

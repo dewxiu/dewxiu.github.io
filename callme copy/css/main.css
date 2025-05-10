@@ -2,29 +2,29 @@
   height: 100vh;
   width: 100vw;
 }
-.main {
+.app-main {
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-.main .header {
+.app-main .header {
   background-color: skyblue;
 }
 
-.main .layout {
+.app-main .layout {
   flex: 1;
   display: flex;
   width: 100%;
 }
 /* 布局 */
-.container {
+.app-main .container {
   display: flex;
   flex-direction: column;
   flex: 1;
   box-sizing: border-box;
 }
-.container .content {
+.app-main .container .content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -32,9 +32,9 @@
 }
 
 /* 左侧菜单 */
-.menu {
+.app-main .menu {
   background-color: rgb(117, 115, 117);
 }
-.menu .menu-item {
+.app-main .menu .menu-item {
   white-space: nowrap;
 }
