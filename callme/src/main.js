@@ -1,8 +1,8 @@
 const { createApp } = Vue;
 
-import App from './App.js'
-import { registerComponents } from './components/index.js'
-import router from './utils/router.js'
+import App from "./App.js";
+import { registerComponents } from "./components/index.js";
+import router from "./utils/router.js";
 
 const app = createApp(App);
 registerComponents(app);

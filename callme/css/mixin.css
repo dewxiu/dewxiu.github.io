@@ -42,10 +42,16 @@ a:hover {
 .ml10 {
   margin-left: 10px;
 }
+.ml15 {
+  margin-left: 15px;
+}
 .mb15 {
   margin-bottom: 15px;
 }
 
+.mt10 {
+  margin-top: 10px;
+}
 .mt20 {
   margin-top: 20px;
 }
@@ -62,6 +68,16 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+} 
 
 .just-between {
   justify-content: space-between;
@@ -113,6 +129,12 @@ label {
   position: relative;
   top: -0.5px;
   margin: 0 5px 0 2px;
+}
+.no-wrap {
+  white-space: nowrap;
+}
+.no-select {
+  user-select: none;
 }
 
 /** 滚动条设置 */
